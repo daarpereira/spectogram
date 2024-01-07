@@ -4,8 +4,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.colors import ListedColormap
 
-def createColorMap():
+def createColorMap(usePink = True, useOrange = True, useGreen = True, useSkyblue = True, useBrown = True, useLightgreen = True, usePurple = True, useBeje = True, useVividgreen = True,useBlue = True, useLightPink = True, useBlack = True):
     
+    colors = []
     N = 256
 
     #PINK
@@ -92,17 +93,30 @@ def createColorMap():
     black[:, 2] = np.linspace(24/256, 1, N)
     black_cmp = ListedColormap(black)
 
-
-    return np.vstack((pink_cmp(np.linspace(1,0, 256)),
-                        orange_cmp(np.linspace(1,0, 256)),
-                        green_cmp(np.linspace(1,0, 256)),
-                        skyblue_cmp(np.linspace(1,0, 256)),
-                        brown_cmp(np.linspace(1,0, 256)),
-                        lightgreen_cmp(np.linspace(1,0, 256)),
-                        purple_cmp(np.linspace(1,0, 256)),
-                        beje_cmp(np.linspace(1,0, 256)),
-                        vividgreen_cmp(np.linspace(1,0, 256)),
-                        blue_cmp(np.linspace(1,0, 256)),
-                        lightpink_cmp(np.linspace(1,0, 256)),
-                        black_cmp(np.linspace(1,0, 256)),
-                        ))
+    
+    if usePink:
+        colors.append(pink_cmp(np.linspace(0,0, 256)))   
+    if useLightgreen:
+        colors.append(lightgreen_cmp(np.linspace(0,0, 256))) 
+    if useOrange:
+        colors.append(orange_cmp(np.linspace(0,0, 256)))
+    if useGreen:
+        colors.append(green_cmp(np.linspace(0,0, 256)))    
+    if useSkyblue:
+        colors.append(skyblue_cmp(np.linspace(0,0, 256)))
+    if useBrown:
+        colors.append(brown_cmp(np.linspace(0,0, 256)))          
+    if usePurple:
+        colors.append(purple_cmp(np.linspace(0,0, 256)))   
+    if useBeje:
+        colors.append(beje_cmp(np.linspace(0,0, 256)))   
+    if useVividgreen:
+        colors.append(vividgreen_cmp(np.linspace(0,0, 256)))    
+    if useBlue:
+        colors.append(blue_cmp(np.linspace(0,0, 256)))  
+    if useLightPink:
+        colors.append(lightpink_cmp(np.linspace(0,0, 256)))
+    if useBlack:
+        colors.append(black_cmp(np.linspace(0,0, 256)))
+ 
+    return np.vstack(colors)
