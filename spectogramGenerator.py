@@ -15,7 +15,7 @@ y, sr = librosa.load(audio_path)
 D_highres = librosa.stft(y)
 
 #CHOOSE DIAGRAM
-spectogram = librosa.feature.melspectrogram(y=y, sr=sr)
+spectogram = librosa.feature.chroma_cqt(y=y, sr=sr)
 
 #CHOOSE COLORS
 newcolors2 = createColorMap(usePink = True, useOrange = True, useGreen = True, useSkyblue = True, useBrown = True, useLightgreen = True, usePurple = True, useBeje = True, useVividgreen = True,useBlue = True, useLightPink = True, useBlack = True)
